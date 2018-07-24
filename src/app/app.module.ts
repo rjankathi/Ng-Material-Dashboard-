@@ -8,8 +8,10 @@ import { TSheetsComponent } from './tsheets/tsheets.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule,MatChipsModule,MatTabsModule, MatTableModule} from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule,MatFormFieldModule, MatSelectModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule,MatChipsModule,MatTabsModule, MatTableModule, MatInputModule} from '@angular/material';
 import { DashComponent } from './dash/dash.component';
+import { NewTsheetComponent } from './tsheets/newtsheet/new-tsheet.component';
+import { TsheetTemplateComponent } from './tsheets/tsheettemplate/tsheet-template.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { DashComponent } from './dash/dash.component';
     HomeComponent,
     TSheetsComponent,
     NavbarComponent,
-    DashComponent
+    DashComponent,
+    NewTsheetComponent,
+    TsheetTemplateComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +31,9 @@ import { DashComponent } from './dash/dash.component';
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
     MatIconModule,
     MatListModule,
     MatGridListModule,
