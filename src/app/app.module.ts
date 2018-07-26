@@ -8,7 +8,10 @@ import { TSheetsComponent } from './tsheets/tsheets.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule,MatFormFieldModule, MatSelectModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule,MatChipsModule,MatTabsModule, MatTableModule, MatInputModule} from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule,MatFormFieldModule,
+         MatSelectModule, MatIconModule, MatListModule, MatGridListModule, 
+         MatCardModule, MatMenuModule,MatChipsModule,MatTabsModule,
+         MatTableModule, MatInputModule,MatDatepickerModule, MatNativeDateModule, MatRadioModule,} from '@angular/material';
 import { DashComponent } from './dash/dash.component';
 import { NewTsheetComponent } from './tsheets/newtsheet/new-tsheet.component';
 import { TsheetTemplateComponent } from './tsheets/tsheettemplate/tsheet-template.component';
@@ -41,7 +44,10 @@ import { TsheetTemplateComponent } from './tsheets/tsheettemplate/tsheet-templat
     MatMenuModule,
     MatChipsModule,
     MatTabsModule,
-    MatTableModule
+    MatTableModule,
+    MatDatepickerModule, 
+    MatNativeDateModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

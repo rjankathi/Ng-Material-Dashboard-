@@ -1,5 +1,119 @@
 
 <div class="grid-container fixed-margin">
   <h1 class="mat-h1">New Timesheet</h1>
- 
+  <mat-card class="col-mat-6 offset-mat-3" >    
+      <!-- Title of the Card -->    
+      <mat-card-title>    
+          Timesheet Information    
+      </mat-card-title>    
+      
+      <mat-card-content>    
+          <form>   
+            <table style="width:100%">
+              <tr>
+                  <table style="width:100%">  
+                      <tr>
+                          <td>    
+                              <mat-form-field>
+                                  <mat-label>Employee Id</mat-label>
+                                  <input matInput placeholder="Employee Id" value="1001">
+                              </mat-form-field>  
+                              <!-- <mat-form-field appearance="outline" class="demo-full-width">   
+                                  <mat-label>Employee ID</mat-label> 
+                                  <input matInput placeholder="Employee ID" value="1001">    
+                              </mat-form-field> -->
+                          </td>    
+                          <td>    
+                              <mat-form-field class="demo-full-width">    
+                                  <input matInput placeholder="Location" value="Los Angeles">    
+                              </mat-form-field>    
+                          </td>    
+                      </tr>  
+                        <tr>    
+                            <td>    
+                                <mat-form-field class="demo-full-width">    
+                                    <input matInput placeholder="Employee" value="Raj Ankathi">    
+                                </mat-form-field>    
+                            </td>    
+                            <td>    
+                                <mat-form-field class="demo-full-width">    
+                                    <input matInput placeholder="Client" value="Facebook">    
+                                </mat-form-field>    
+                            </td>    
+                        </tr>  
+                        <tr>    
+                            <td>    
+                                <mat-form-field class="demo-full-width">    
+                                    <input matInput placeholder="Approver" value="Mark Zuckerberg">    
+                                </mat-form-field>    
+                            </td>    
+                            <td>    
+                                <mat-form-field class="demo-full-width">    
+                                    <input matInput placeholder="Period" value="07/22/2018 - 07/27/2018">    
+                                </mat-form-field>    
+                            </td>    
+                        </tr>   
+                        
+                    </table> 
+              </tr>
+            </table> 
+                
+          </form>    
+      </mat-card-content>    
+  </mat-card> 
+  <mat-card>    
+      <!-- Title of the Card -->    
+      <mat-card-title>    
+          Tasks & Hours    
+      </mat-card-title>    
+      
+      <mat-card-content>    
+          <form>
+              <table class="tasks-hours" style="width: 100%">
+                <tr>
+                  <th>Task Name</th>
+                  <th *ngFor="let date of datesArray">{{date.fmt_date.weekDay}} {{date.fmt_date.date}} {{date.fmt_date.month}} </th>
+                  <th>Total Hours</th>
+                </tr>
+                <tr>
+                  <td>
+                      <mat-form-field>
+                          <textarea matInput placeholder="Textarea">Create Web API Services</textarea>
+                        </mat-form-field>
+                  </td>
+                  <td *ngFor="let date of datesArray">
+                     <mat-form-field>
+                      <input matInput placeholder="hours" [disabled]="date.is_weekend" [value]="date.is_weekend ? 0 : 8">
+                    </mat-form-field>
+                    <!-- <mat-form-field appearance="outline">
+                        <mat-label>Hours</mat-label>
+                        <input matInput placeholder="hours" [disabled]="date.is_weekend" [value]="date.is_weekend ? 0 : 8">
+                      </mat-form-field> -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                      <mat-form-field>
+                          <input matInput placeholder="hours" [value]="40">
+                        </mat-form-field>
+                  </td>
+                </tr>
+              </table>
+              <table>
+                <tr>
+                  <table>
+
+                    <tr>
+                      <td colspan="2">
+                        <button mat-raised-button color="accent">Create</button> &nbsp;
+                        <button mat-raised-button color="accent">Clear</button>
+                      </td>
+                    </tr>
+                  </table>
+                </tr>
+              </table>
+          </form> 
+      </mat-card-content>    
+  </mat-card> 
 </div>
+
