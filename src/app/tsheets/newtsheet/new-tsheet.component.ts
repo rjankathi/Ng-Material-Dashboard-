@@ -9,6 +9,8 @@ export class NewTsheetComponent implements OnInit {
   fromDate: any;
   toDate: any;
   datesArray: any;
+  payPeriod:any;
+
   constructor() { }
 
   ngOnInit() {
@@ -26,6 +28,7 @@ export class NewTsheetComponent implements OnInit {
 
     this.fromDate = weekStart;
     this.toDate = weekEnd;
+    this.payPeriod = `${this.fromDate.toLocaleString().split(',')[0]} - ${this.toDate.toLocaleString().split(',')[0]}`
     this.datesArray  = this.getDates(this.fromDate,this.toDate)
     //.toISOString().split('T')[0];
     //new Date().toISOString()
@@ -75,4 +78,5 @@ export class NewTsheetComponent implements OnInit {
     return dates;
   }
 
+  
 }

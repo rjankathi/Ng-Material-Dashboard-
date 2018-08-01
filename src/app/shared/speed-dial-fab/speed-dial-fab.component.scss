@@ -1,0 +1,62 @@
+.fab-container {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  
+    > div {
+      // display: flex;
+      // flex-direction: column-reverse;
+      // align-items: center;
+      // margin-bottom: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: right;
+        margin-bottom: 0px;
+  
+      button {
+        margin-bottom: 17px;
+      }
+    }
+  }
+  .fab-toggler {
+    float: right;
+    z-index: 100;
+    margin-left: 100px;//remove for icons only
+  }
+  #fab-dismiss {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+  }
+  
+  #overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#text{
+  position: fixed;
+  bottom: 65px;
+  right: 15px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+
+}

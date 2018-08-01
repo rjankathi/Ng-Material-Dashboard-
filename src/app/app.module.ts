@@ -15,6 +15,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule,MatFormFieldModule,
 import { DashComponent } from './dash/dash.component';
 import { NewTsheetComponent } from './tsheets/newtsheet/new-tsheet.component';
 import { TsheetTemplateComponent } from './tsheets/tsheettemplate/tsheet-template.component';
+import { SpeedDialFabComponent } from './shared/speed-dial-fab/speed-dial-fab.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TsheetTemplateComponent } from './tsheets/tsheettemplate/tsheet-templat
     NavbarComponent,
     DashComponent,
     NewTsheetComponent,
-    TsheetTemplateComponent
+    TsheetTemplateComponent,
+    SpeedDialFabComponent,
   ],
   imports: [
     BrowserModule,

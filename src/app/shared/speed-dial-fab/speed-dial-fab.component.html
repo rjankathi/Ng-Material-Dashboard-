@@ -1,0 +1,30 @@
+<div id="fab-dismiss" 
+     *ngIf="fabTogglerState==='active'" 
+     (click)="onToggleFab()">
+</div>
+<div class="fab-container">
+    <button mat-fab class="fab-toggler"
+            (click)="onToggleFab()">
+      <mat-icon [@fabToggler]="{value: fabTogglerState}">add</mat-icon>
+    </button>
+    <div [@speedDialStagger]="buttons.length" id="overlay" (click)="off()">
+      <div id="text">
+          <button *ngFor="let btn of buttons"
+          mat-raised-button
+          class="mat-elevation-z8"
+                  color="secondary" (click)="createTimesheet(btn.text)">
+            <!-- <mat-icon>{{btn.icon}}</mat-icon> -->{{btn.text}}
+          </button>
+      </div>
+    </div>
+  </div>
+  <!-- <div id="overlay" onclick="off()">
+      <div id="text">Overlay Text</div>
+    </div> -->
+    <!-- 
+      <mat-form-field appearance="outline" class="demo-full-width">   
+                                  <mat-label>Employee ID</mat-label> 
+                                  <input matInput placeholder="Employee ID" value="1001">    
+                              </mat-form-field> 
+           <button mat-raised-button align="end" color="warn">Clear</button>                  
+    -->
