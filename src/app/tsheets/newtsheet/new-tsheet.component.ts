@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 
 @Component({
   selector: 'app-new-tsheet.component',
@@ -11,7 +16,10 @@ export class NewTsheetComponent implements OnInit {
   datesArray: any;
   payPeriod:any;
 
-  constructor() { }
+  animal: string;
+  name: string;
+
+  constructor(private dialog:MatDialog  ) { }
 
   ngOnInit() {
     this.getFromToDates();
@@ -78,5 +86,44 @@ export class NewTsheetComponent implements OnInit {
     return dates;
   }
 
+  public openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '250px',
+      data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+
   
+}
+
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  template: `
+              <h1 mat-dialog-title>Task Worked</h1>
+              <div mat-dialog-content style="width:100%">
+                <mat-form-field>
+                  <textarea matInput [(ngModel)]="data.animal"></textarea>
+                </mat-form-field>
+              </div>
+              <div mat-dialog-actions style="width:100%">
+                <button mat-button (click)="onNoClick()">Cancel</button>
+                <button mat-raised-button color="primary" [mat-dialog-close]="data.animal" cdkFocusInitial>Post</button>
+              </div>
+               `,
+})
+export class DialogOverviewExampleDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
 }

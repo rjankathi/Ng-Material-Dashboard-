@@ -11,9 +11,61 @@
   </div> -->
     <!-- <button mat-fab color="accent" class="mat-fab mat-fab-bottom-right" matTooltip="Create Timesheet" aria-label="Add"><mat-icon>add</mat-icon></button> -->
    <app-speed-dial-fab></app-speed-dial-fab>
+   
     <mat-tab-group>
+        <mat-tab label="Due"> 
+            <br>
+            <h1>Work Items to act upon</h1>
+              <mat-table [dataSource]="dueDataSource" class="mat-elevation-z8">
+                  <!-- Reason Column -->
+                  <ng-container matColumnDef="reason">
+                    <mat-header-cell *matHeaderCellDef> Information / Reason</mat-header-cell>
+                    <!-- <mat-cell *matCellDef="let element"><a href="/tsheet/new">{{element.reason}}</a> </mat-cell>   -->
+                    <mat-cell *matCellDef="let element"><a [routerLink]="['/tsheets',element.id]">{{element.reason}}</a> </mat-cell>  
+                  </ng-container>
+                
+                  <!-- Sheet Id Column -->
+                  <ng-container matColumnDef="sheetId">
+                    <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.sheetId}} </mat-cell>
+                  </ng-container>
+                
+                  <!-- Status Column -->
+                  <ng-container matColumnDef="status">
+                      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+                      <mat-cell *matCellDef="let element">
+                          <mat-chip-list>
+                              <mat-chip color="accent" selected>{{element.status}}</mat-chip>
+                            </mat-chip-list>
+                      </mat-cell>
+                  </ng-container>
+
+                  <!-- PayPeriod Column -->
+                  <ng-container matColumnDef="payPeriod">
+                      <mat-header-cell *matHeaderCellDef> Pay Period </mat-header-cell>
+                      <mat-cell *matCellDef="let element">{{element.payPeriod}}</mat-cell>
+                    </ng-container>
+
+                  <!-- Endclient Column -->
+                  <ng-container matColumnDef="endClient">
+                      <mat-header-cell *matHeaderCellDef> Client </mat-header-cell>
+                      <mat-cell *matCellDef="let element">
+                          {{element.endClient}}
+                      </mat-cell>
+                  </ng-container>
+                  
+                   <!-- Hours Missing Column -->
+                   <ng-container matColumnDef="totalHoursMissing">
+                      <mat-header-cell *matHeaderCellDef> Total Hours Missing </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.totalHoursMissing}} </mat-cell>
+                    </ng-container>
+                
+                  <mat-header-row *matHeaderRowDef="dueColumns"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: dueColumns;"></mat-row>
+                </mat-table>
+          </mat-tab>
     <mat-tab label="Sheets"> 
-      <h4>Showing 1 to 2 of 2 records</h4>
+      <!-- <h4>Showing 1 to 2 of 2 records</h4> --><br/>
         <table mat-table [dataSource]="tsDataSource" matSort class="mat-elevation-z8">
             
               <!-- Position Column -->
@@ -81,43 +133,8 @@
             </table>
             
     </mat-tab>
-    <mat-tab label="Due"> 
-      <br>
-        <mat-table [dataSource]="dueDataSource" class="mat-elevation-z8">
-            <!-- Position Column -->
-            <ng-container matColumnDef="jobCode">
-              <mat-header-cell *matHeaderCellDef> Job Code </mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element.jobCode}} </mat-cell>
-            </ng-container>
-          
-            <!-- Name Column -->
-            <ng-container matColumnDef="jobTitle">
-              <mat-header-cell *matHeaderCellDef> Job Title </mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element.jobTitle}} </mat-cell>
-            </ng-container>
-          
-            <!-- Weight Column -->
-            <ng-container matColumnDef="endClient">
-              <mat-header-cell *matHeaderCellDef> End Client </mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element.endClient}} </mat-cell>
-            </ng-container>
-          
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="totalHoursMissing">
-              <mat-header-cell *matHeaderCellDef> Missing Dates </mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element.totalHoursMissing}} </mat-cell>
-            </ng-container>
-
-             <!-- Symbol Column -->
-             <ng-container matColumnDef="missingDates">
-                <mat-header-cell *matHeaderCellDef> Total Hours Missing </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.totalHoursMissing}} </mat-cell>
-              </ng-container>
-          
-            <mat-header-row *matHeaderRowDef="dueColumns"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: dueColumns;"></mat-row>
-          </mat-table>
-    </mat-tab>
+    
     <mat-tab label="Miscellaneous"> No clue what goes here. :( </mat-tab>
   </mat-tab-group>
 </div>
+

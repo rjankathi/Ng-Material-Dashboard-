@@ -34,17 +34,38 @@ export class TSheetsComponent implements OnInit {
 // var from = new Date('07/08/2018');
 // var to = new Date('07/14/2018');
 //days = diffDays(new Date('07/08/2018'),new Date('07/14/2018'));
- dueData = [
+//  dueData = [
+//   {
+//     jobCode:'JCODE-566',
+//     jobTitle:'Full stack dev',
+//     endClient:'Fox',
+//     totalHoursMissing:'56', 
+//     missingDates:10
+//   }];
+
+dueData = [
   {
-    jobCode:'JCODE-566',
-    jobTitle:'Full stack dev',
+    id:1,
+    reason:'Complete Timesheet',
+    sheetId:'RA-123-1',
+    status:'Draft',
+    payPeriod:'7/27/2018 - 7/31/2018',
     endClient:'Fox',
-    totalHoursMissing:'56', 
-    missingDates:10
-  }];
+    totalHoursMissing:'80', 
+  },
+  {
+    id:2,
+    reason:'Complete Timesheet',
+    sheetId:'RA-123-2',
+    status:'Draft',
+    payPeriod:'7/20/2018 - 7/24/2018',
+    endClient:'Fox',
+    totalHoursMissing:'80', 
+  }
+];
 
   displayedColumns: string[] = ['id', 'endclient', 'from', 'to','totalhours','billablehours','status','attachment','submittedon','actions'];
-  dueColumns :string[] = ['jobCode','jobTitle','endClient','totalHoursMissing','missingDates'];
+  dueColumns :string[] = ['reason','sheetId','status','payPeriod','endClient','totalHoursMissing'];
   
   constructor(private router:Router) { }
 

@@ -8,8 +8,10 @@ import { TsheetTemplateComponent } from './tsheets/tsheettemplate/tsheet-templat
 const routes: Routes = [
   { path:"", component:HomeComponent },
   { path:"tsheets", component:TSheetsComponent },
+  { path:"tsheets/:id",component:NewTsheetComponent },
   { path:"tsheets/new",component:NewTsheetComponent },
   { path:"tsheets/template",component:TsheetTemplateComponent },
+  //{ path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

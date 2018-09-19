@@ -15,9 +15,9 @@ export class SpeedDialFabComponent implements OnInit {
     // { icon: 'lightbulb_outline'},
     // { icon: 'lock'}
     { text: 'New Timesheet'},
-    { text: 'From Another Timesheet'},
+    // { text: 'From Another Timesheet'},
     { text: 'From Template'},
-    { text: 'From Project'}
+    // { text: 'From Project'}
   ];
   buttons = [];
   fabTogglerState = 'inactive';
